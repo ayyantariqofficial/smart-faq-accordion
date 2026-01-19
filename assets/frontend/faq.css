@@ -1,0 +1,113 @@
+/* Base accordion */
+.sfa-accordion {
+  margin: 20px 0;
+}
+
+.sfa-item + .sfa-item {
+  margin-top: 10px;
+}
+
+.sfa-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
+  line-height: 1.3;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.sfa-question:focus {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+.sfa-answer {
+  border: 1px solid #ccc;
+  border-top: 0;
+  padding: 12px 14px;
+  background: #fff;
+  color: #000000;
+}
+
+.sfa-answer-inner p:first-child {
+  margin-top: 0;
+}
+.sfa-answer-inner p:last-child {
+  margin-bottom: 0;
+}
+
+/* Icon container */
+.sfa-icon {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  position: relative;
+  flex: 0 0 auto;
+}
+
+/* Chevron icon */
+.sfa-icon-chevron .sfa-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.15s ease-in-out;
+}
+
+.sfa-icon-chevron .sfa-item.is-open .sfa-icon::before {
+  transform: rotate(-135deg);
+}
+
+/* Plus/Minus icon */
+.sfa-icon-plusminus .sfa-icon::before,
+.sfa-icon-plusminus .sfa-icon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: currentColor;
+}
+.sfa-icon-plusminus .sfa-icon::before {
+  width: 12px;
+  height: 2px;
+}
+.sfa-icon-plusminus .sfa-icon::after {
+  width: 2px;
+  height: 12px;
+}
+.sfa-icon-plusminus .sfa-item.is-open .sfa-icon::after {
+  display: none;
+}
+
+/* No icon */
+.sfa-icon-none .sfa-icon {
+  display: none;
+}
+
+/* Themes */
+.sfa-theme-minimal .sfa-question,
+.sfa-theme-minimal .sfa-answer {
+  border-radius: 0;
+}
+
+.sfa-theme-light .sfa-question,
+.sfa-theme-light .sfa-answer {
+  border-color: #e5e7eb;
+  background: #fff;
+}
+
+.sfa-theme-bordered .sfa-question,
+.sfa-theme-bordered .sfa-answer {
+  border-color: #111;
+}
