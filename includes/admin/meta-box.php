@@ -4,7 +4,7 @@ if (! defined('ABSPATH')) {
 }
 
 /**
- * Register FAQ meta box for posts.
+ * Register FAQ meta box for enabled post types.
  */
 function sfa_register_faq_meta_box()
 {
@@ -12,7 +12,7 @@ function sfa_register_faq_meta_box()
         'sfa_faq_meta_box',          // Meta box ID
         __('FAQs', SFA_TEXT_DOMAIN), // Title
         'sfa_render_faq_meta_box',   // Callback (we'll build next)
-        'post',                      // Screen (Posts only)
+        sfa_get_enabled_post_types(), // Screen (enabled post types)
         'normal',                    // Context
         'default'                    // Priority
     );

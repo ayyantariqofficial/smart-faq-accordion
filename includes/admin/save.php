@@ -35,8 +35,9 @@ function sfa_sanitize_answer_html($html)
 function sfa_save_faq_meta_box($post_id)
 {
 
-    // 1) Only handle Posts (matches our spec).
-    if ('post' !== get_post_type($post_id)) {
+    // 1) Only handle enabled post types.
+    $post_type = get_post_type($post_id);
+    if (! in_array($post_type, sfa_get_enabled_post_types(), true)) {
         return;
     }
 

@@ -74,6 +74,32 @@ function sfa_get_settings()
     return wp_parse_args($saved, $defaults);
 }
 
+/**
+ * Post types where FAQ features are enabled.
+ *
+ * By default we support all public post types except attachments.
+ */
+function sfa_get_enabled_post_types()
+{
+    $post_types = get_post_types(
+        array(
+            'public' => true,
+        ),
+        'names'
+    );
+
+    if (isset($post_types['attachment'])) {
+        unset($post_types['attachment']);
+    }
+
+    $post_types = array_values($post_types);
+
+    /**
+     * Filter enabled post types for Smart FAQ.
+     */
+    return apply_filters('sfa_enabled_post_types', $post_types);
+}
+
 
 /**
  * Boot the plugin.

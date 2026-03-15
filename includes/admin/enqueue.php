@@ -14,7 +14,7 @@ function sfa_admin_enqueue_assets($hook_suffix)
     }
 
     $screen = get_current_screen();
-    if (! $screen || 'post' !== $screen->post_type) {
+    if (! $screen || ! in_array($screen->post_type, sfa_get_enabled_post_types(), true)) {
         return;
     }
 

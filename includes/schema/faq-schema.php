@@ -66,8 +66,8 @@ function sfa_output_faq_schema()
         return;
     }
 
-    // Posts only (as per your spec).
-    if (! is_singular('post')) {
+    // Enabled post types only.
+    if (! is_singular(sfa_get_enabled_post_types())) {
         return;
     }
 

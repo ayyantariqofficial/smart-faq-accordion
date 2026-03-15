@@ -9,7 +9,7 @@ if (! defined('ABSPATH')) {
 function sfa_frontend_enqueue_assets()
 {
 
-    if (! is_singular('post')) {
+    if (! is_singular(sfa_get_enabled_post_types())) {
         return;
     }
 

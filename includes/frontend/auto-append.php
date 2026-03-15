@@ -14,7 +14,7 @@ function sfa_maybe_auto_append_faqs($content)
         return $content;
     }
 
-    if (! is_singular('post')) {
+    if (! is_singular(sfa_get_enabled_post_types())) {
         return $content;
     }
 
